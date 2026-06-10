@@ -10,9 +10,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --sand:#F5EEE3;--sand-2:#EFE5D6;--paper:#FBF6EE;
-  --clay:#B8543B;--clay-deep:#9C4631;--terra:#C96A48;--rose:#D98D72;
-  --sunset:#E8803C;--gold:#EFA04A;--ocean:#3E8E89;--ocean-deep:#2F6F6B;
+  --sand:#F7EDEB;--sand-2:#F1E4E1;--paper:#FCF3F1;
+  --clay:#BC5D5A;--clay-deep:#A44E4B;--terra:#CE7C77;--rose:#E2938E;
+  --sunset:#D98A82;--gold:#E6A99E;--ocean:#3E8E89;--ocean-deep:#2F6F6B;
   --ink:#2A2420;--ink-soft:#5A5048;--line:rgba(42,36,32,.14);
   --max:1280px;--r:18px;
 }
@@ -46,7 +46,7 @@ body.menu-open .burger span:nth-child(2){opacity:0}
 body.menu-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
 /* MOBILE MENU OVERLAY */
-.mobile-menu{position:fixed;inset:0;z-index:55;background:linear-gradient(165deg,#9C4631,#B8543B 55%,#C96A48);display:flex;flex-direction:column;justify-content:center;padding:90px 32px 40px;transform:translateY(-100%);transition:transform .5s cubic-bezier(.6,.05,.2,1);visibility:hidden}
+.mobile-menu{position:fixed;inset:0;z-index:55;background:linear-gradient(165deg,#A44E4B,#BC5D5A 55%,#CE7C77);display:flex;flex-direction:column;justify-content:center;padding:90px 32px 40px;transform:translateY(-100%);transition:transform .5s cubic-bezier(.6,.05,.2,1);visibility:hidden}
 .mobile-menu.open{transform:translateY(0);visibility:visible}
 .mobile-menu a.mm-link{color:#fff;font-family:"Fraunces",serif;font-size:34px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.18);display:block;transition:padding-left .25s}
 .mobile-menu a.mm-link:active{padding-left:10px}
@@ -110,15 +110,15 @@ body.menu-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45de
 .ph .ph-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
 .ph::after{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(42,36,32,.14));pointer-events:none}
 .ratio-43{aspect-ratio:4/3}.ratio-11{aspect-ratio:1/1}.ratio-34{aspect-ratio:3/4}.ratio-169{aspect-ratio:16/10}
-.g-deck{background:linear-gradient(180deg,#f4b46a,#e8803c 38%,#c96a48 70%,#9c4631)}
-.g-storage{background:linear-gradient(160deg,#d99a78,#c96a48 55%,#9c4631)}
-.g-pool{background:linear-gradient(150deg,#d98d72,#c96a48 40%,#3e8e89)}
-.g-pool2{background:linear-gradient(140deg,#e09a6e,#c96a48 45%,#2f6f6b)}
-.g-entrance{background:linear-gradient(165deg,#e2a878,#c96a48 60%,#8d3f2c)}
-.g-lounge{background:linear-gradient(160deg,#e8b27a,#c96a48 50%,#7fae9c)}
-.g-crowd{background:linear-gradient(180deg,#f6c074,#e8803c 45%,#b8543b 80%,#5a4a52)}
-.g-arch{background:linear-gradient(155deg,#d98d72,#b8543b 50%,#6f5a86)}
-.g-kite{background:linear-gradient(170deg,#f3b96a,#d98d72 50%,#3e8e89)}
+.g-deck{background:linear-gradient(180deg,#f3cdc6,#D98A82 38%,#CE7C77 70%,#A44E4B)}
+.g-storage{background:linear-gradient(160deg,#e8b8b1,#CE7C77 55%,#A44E4B)}
+.g-pool{background:linear-gradient(150deg,#E2938E,#CE7C77 40%,#3e8e89)}
+.g-pool2{background:linear-gradient(140deg,#ebb3ab,#CE7C77 45%,#2f6f6b)}
+.g-entrance{background:linear-gradient(165deg,#eec0b8,#CE7C77 60%,#9e4d49)}
+.g-lounge{background:linear-gradient(160deg,#efc2ba,#CE7C77 50%,#7fae9c)}
+.g-crowd{background:linear-gradient(180deg,#f4d2cb,#D98A82 45%,#BC5D5A 80%,#5a4a52)}
+.g-arch{background:linear-gradient(155deg,#E2938E,#BC5D5A 50%,#6f5a86)}
+.g-kite{background:linear-gradient(170deg,#f1cfc8,#E2938E 50%,#3e8e89)}
 
 /* EXPERIENCE GRID */
 .exp-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
@@ -183,7 +183,7 @@ body.menu-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45de
 .banner p{color:rgba(255,255,255,.85);margin-top:16px;letter-spacing:.16em;text-transform:uppercase;font-size:12px}
 
 /* VISION */
-.vision{background:linear-gradient(165deg,#9c4631,#b8543b 60%,#c96a48);color:#fff;border-radius:28px;padding:clamp(44px,6vw,90px);position:relative;overflow:hidden}
+.vision{background:linear-gradient(165deg,#A44E4B,#BC5D5A 60%,#CE7C77);color:#fff;border-radius:28px;padding:clamp(44px,6vw,90px);position:relative;overflow:hidden}
 .vision .badge{display:inline-block;border:1px solid rgba(255,255,255,.4);border-radius:100px;padding:7px 16px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:26px}
 .vision h2{font-size:clamp(30px,4.6vw,58px);max-width:18ch;margin-bottom:22px}
 .vision p{font-weight:300;font-size:16.5px;max-width:56ch;color:rgba(255,255,255,.9)}
@@ -240,15 +240,14 @@ body.menu-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45de
 /* ===== DEMO PROTECTION ===== */
 body{-webkit-user-select:none;-ms-user-select:none;user-select:none}
 body.gated{overflow:hidden;height:100vh}
-.wm{position:fixed;inset:0;z-index:9000;pointer-events:none;opacity:.085;background-repeat:repeat;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='360' height='210'><text x='10' y='120' transform='rotate(-30 180 105)' font-family='Arial, sans-serif' font-size='26' font-weight='700' fill='%232A2420'>DEMO BOHAM PRAIA</text></svg>")}
-#gate{position:fixed;inset:0;z-index:9999;background:linear-gradient(165deg,#9C4631,#B8543B 55%,#C96A48);display:flex;align-items:center;justify-content:center;padding:28px}
+#gate{position:fixed;inset:0;z-index:9999;background:linear-gradient(165deg,#A44E4B,#BC5D5A 55%,#CE7C77);display:flex;align-items:center;justify-content:center;padding:28px}
 #gate .box{max-width:430px;width:100%;text-align:center;color:#fff}
 #gate .glogo{font-family:"Fraunces",serif;font-size:36px;letter-spacing:.04em;margin-bottom:6px}
 #gate .gk{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.8);margin-bottom:20px}
 #gate p{color:rgba(255,255,255,.85);font-size:14.5px;margin-bottom:24px;font-weight:300;line-height:1.5}
 #gate input{width:100%;padding:15px 18px;border-radius:100px;border:1px solid rgba(255,255,255,.5);background:rgba(255,255,255,.14);color:#fff;font-size:15px;text-align:center;outline:none;-webkit-user-select:text;user-select:text;backdrop-filter:blur(6px)}
 #gate input::placeholder{color:rgba(255,255,255,.65)}
-#gate button{margin-top:12px;width:100%;padding:15px 18px;border-radius:100px;border:none;background:#fff;color:#9C4631;font-weight:600;font-size:15px;cursor:pointer;transition:transform .2s}
+#gate button{margin-top:12px;width:100%;padding:15px 18px;border-radius:100px;border:none;background:#fff;color:#A44E4B;font-weight:600;font-size:15px;cursor:pointer;transition:transform .2s}
 #gate button:hover{transform:translateY(-1px)}
 #gate .err{min-height:18px;margin-top:12px;font-size:12.5px;color:#ffe2d6}
 </style>
@@ -265,7 +264,6 @@ body.gated{overflow:hidden;height:100vh}
     <div class="err" id="gerr"></div>
   </div>
 </div>
-<div class="wm" aria-hidden="true"></div>
 
 <!-- NAV -->
 <nav class="nav" id="nav">
@@ -429,7 +427,7 @@ body.gated{overflow:hidden;height:100vh}
       <p>Cozinha de praia made for long days by the sea — relaxed beach lunches, açaí bowls, fresh salads, burgers and fish, served right where the wind meets the water.</p>
       <p>When the afternoon turns golden, the bar takes over: caipirinhas, signature cocktails and cold drinks for big group tables that stretch into the sunset.</p>
       <div style="margin-top:20px">
-        <span class="tag">Beach lunches</span><span class="tag">Açaí</span><span class="tag">Salads</span><span class="tag">Burgers</span><span class="tag">Fish &amp; seafood</span><span class="tag">Caipirinhas</span><span class="tag">Signature cocktails</span><span class="tag">Sunset drinks</span>
+        <span class="tag">Moqueca de peixe</span><span class="tag">Ceviche</span><span class="tag">Grilled octopus</span><span class="tag">Shrimp fried rice</span><span class="tag">Fish burger</span><span class="tag">Açaí</span><span class="tag">Caipirinha</span><span class="tag">Aperol Spritz</span><span class="tag">The BOHAM Beach</span>
       </div>
       <div class="cta-row" style="margin-top:26px">
         <a data-cta="menu" class="btn btn-primary" style="background:var(--clay)">View menu</a>
@@ -636,10 +634,10 @@ body.gated{overflow:hidden;height:100vh}
    Leave a value as "" to disable that button (it will be hidden).
    ============================================================ */
 const CONFIG = {
-  whatsapp:    "https://wa.me/5586999857676",   // TODO: confirm the correct WhatsApp number
+  whatsapp:    "https://api.whatsapp.com/send/?phone=5586999857676&text&type=phone_number&app_absent=0",   // TODO: confirm the correct WhatsApp number
   maps:        "https://www.google.com/maps/search/?api=1&query=BOHAM%20Praia%20Barra%20Grande%20Cajueiro%20da%20Praia%20PI",
   instagram:   "https://www.instagram.com/bohampraia/",
-  menu:        "",   // TODO: paste menu / Linktree URL
+  menu:        "CARDAPIO-BOHAM.pdf",   // TODO: paste menu / Linktree URL
   tripadvisor: "",   // TODO: paste Tripadvisor URL
   google:      ""    // TODO: paste Google reviews URL
 };
