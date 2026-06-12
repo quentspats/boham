@@ -238,7 +238,6 @@ body.menu-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45de
 @media(max-width:820px){.navlinks{display:none}.burger{display:flex}.hero-inner{padding-bottom:40px}}
 
 /* ===== DEMO PROTECTION ===== */
-body{-webkit-user-select:none;-ms-user-select:none;user-select:none}
 body.gated{overflow:hidden;height:100vh}
 #gate{position:fixed;inset:0;z-index:9999;background:linear-gradient(165deg,#A44E4B,#BC5D5A 55%,#CE7C77);display:flex;align-items:center;justify-content:center;padding:28px}
 #gate .box{max-width:430px;width:100%;text-align:center;color:#fff}
@@ -698,29 +697,42 @@ document.querySelectorAll('.ph[data-src]').forEach(ph=>{
 });
 </script>
 <script>
-/* ===== DEMO GATE + ANTI-COPY FRICTION =====
-   Change the password by editing PW below.
-   NOTE: client-side protection adds friction only; it is not unbreakable.
-   Anyone technical can still view source. Real protection = the CMS/backend stays private. */
+/* ===== PRIVATE PREVIEW ACCESS GATE =====
+   CLIENT_PW  -> limited to MAX_VIEWS viewing sessions, then locked.
+   OWNER_PW   -> unlimited access, never counted (keep this private).
+   The limit is stored per-browser (localStorage). A new browser, a private
+   window, or another device starts a fresh count. Strong friction, not a vault. */
 (function(){
-  var PW = "BOHAM2026";              // <-- change the demo password here
+  var CLIENT_PW = "BOHAM2026";        // share this one with the client
+  var OWNER_PW  = "BOHAM-OWNER-QP";   // your private key — unlimited access
+  var MAX       = 2;                  // client viewing sessions allowed
+  var KEY       = "boham_views_v1";
   var gate=document.getElementById('gate');
   var inp=document.getElementById('gpw');
   var err=document.getElementById('gerr');
-  function unlock(){gate.style.display='none';document.body.classList.remove('gated');try{sessionStorage.setItem('boham_ok','1')}catch(e){}}
-  try{if(sessionStorage.getItem('boham_ok')==='1')unlock();}catch(e){}
-  function go(){ if(inp.value===PW){unlock();} else {err.textContent='Incorrect password. Please try again.';inp.value='';inp.focus();} }
-  document.getElementById('gbtn').addEventListener('click',go);
-  inp.addEventListener('keydown',function(e){if(e.key==='Enter')go();});
-  if(!sessionStorage.getItem('boham_ok')) setTimeout(function(){inp.focus();},200);
-  // friction
-  document.addEventListener('contextmenu',function(e){e.preventDefault();});
-  document.addEventListener('dragstart',function(e){e.preventDefault();});
-  document.addEventListener('keydown',function(e){
-    var k=(e.key||'').toLowerCase();
-    if((e.ctrlKey||e.metaKey)&&['s','u','p','c','a'].indexOf(k)>-1){e.preventDefault();}
-    if(k==='f12'){e.preventDefault();}
-  });
+  var btn=document.getElementById('gbtn');
+  function views(){ return parseInt(localStorage.getItem(KEY)||"0",10)||0; }
+  function unlock(){ gate.style.display='none'; document.body.classList.remove('gated'); try{sessionStorage.setItem('boham_sess','1');}catch(e){} }
+  function markExpired(){
+    err.innerHTML='This private preview has reached its viewing limit.<br>Please contact Quentin for access.';
+    inp.placeholder='Owner password';
+  }
+  // same tab/session: stay in without spending a view
+  try{ if(sessionStorage.getItem('boham_sess')==='1'){ unlock(); return; } }catch(e){}
+  if(views() >= MAX) markExpired();
+  function go(){
+    var v=inp.value;
+    if(v===OWNER_PW){ unlock(); return; }                       // owner: always in, not counted
+    if(v===CLIENT_PW){
+      if(views() >= MAX){ markExpired(); err.textContent='This link has reached its 2-view limit.'; inp.value=''; return; }
+      try{ localStorage.setItem(KEY, String(views()+1)); }catch(e){}
+      unlock(); return;
+    }
+    err.textContent='Incorrect password. Please try again.'; inp.value=''; inp.focus();
+  }
+  btn.addEventListener('click', go);
+  inp.addEventListener('keydown', function(e){ if(e.key==='Enter') go(); });
+  setTimeout(function(){ try{inp.focus();}catch(e){} }, 200);
 })();
 </script>
 </body>
